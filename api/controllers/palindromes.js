@@ -1,5 +1,5 @@
 exports.isPalindrome = (req, res, next) => {
-    const words = req.params.words.replace('words=','');
+    const words = req.params.words;
 
     if (isPalindrome(words)) {
         res.status(200).json({
