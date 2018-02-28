@@ -18,8 +18,8 @@ function isPalindrome(words) {
         return false
     }
     
-    var forwards = words.toLowerCase();
-    var backwards = forwards.split("").reverse().join("");
+    var forwards = words.split(" ").join("").toLowerCase();
+    var backwards = forwards.split(" ").reverse().join("");
 
     return forwards === backwards
 }
