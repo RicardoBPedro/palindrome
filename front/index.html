@@ -37,7 +37,7 @@
         document.getElementById("success").style = 'display: none';
         document.getElementById("danger").style = 'display: none';
 
-        var url = "http://localhost:3000/palindromes/words=" + document.getElementById('input').value;
+        var url = "http://localhost:3000/palindromes/" + document.getElementById('input').value;
 
         var xhttp = new XMLHttpRequest();
         xhttp.open("GET", url, false);
