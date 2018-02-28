@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Palindromes test</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<body>   
+        <div class="container-fluid">
+            <form class="center">
+                <div class="form-group" style="margin-top: 10%">
+                        <h3 class="text-center">Type a word or a phrase and check if it is a palindrome</h3>
+                    <div class="input-group mb-3">
+                        <input id="input" type="text" class="form-control" aria-describedby="basic-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" onclick="testPalindromes()">Check it</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div id="success" class="alert alert-success" role="alert" style="display: none">
+                It is a palindrome
+            </div>
+
+            <div id="danger" class="alert alert-danger" role="alert" style="display: none">
+                    It is not a palindrome
+                </div>
+        </div>
+       
+
+</body>
+
+<script>
+    function testPalindromes() {
+        document.getElementById("success").style = 'display: none';
+        document.getElementById("danger").style = 'display: none';
+
+        var url = "http://localhost:3000/palindromes/words=" + document.getElementById('input').value;
+
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        xhttp.send();
+
+        if (xhttp.status === 200) {
+            document.getElementById("success").style = 'display: block';
+        } else {
+            document.getElementById("danger").style = 'display: block';
+        }
+    }    
+</script>
+
+</html>
