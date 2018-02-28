@@ -19,7 +19,7 @@ function isPalindrome(words) {
     }
     
     var forwards = words.split(" ").join("").toLowerCase();
-    var backwards = forwards.split(" ").reverse().join("");
+    var backwards = forwards.split("").reverse().join("");
 
     return forwards === backwards
 }
